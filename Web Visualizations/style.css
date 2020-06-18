@@ -1,0 +1,18 @@
+body{
+    background-color: lightcyan;
+}
+
+.header{
+    padding-top: 12px;
+    padding-left: 4px;
+    color: coral;
+    font-size: 25px;
+    font-weight: bold;
+}
+.plot_content{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 15px 45px 7px;
+    color:black;
+    background-color: white;
+}
