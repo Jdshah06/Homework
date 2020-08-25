@@ -14,7 +14,7 @@ function read(idname) {
 
 function dropdown() {
     var id_drop = d3.select("#selDataset");
-    d3.json("../../samples.json").then((data) => {
+    d3.json("samples.json").then((data) => {
         var id_names = data.names;
         id_names.forEach((id) => {
             id_drop.append("option").text(id).property("value", id);
@@ -29,7 +29,7 @@ function optionChanged(new_id) {
 }
 
 function barplot(idname) {
-    d3.json("../../samples.json").then((data) =>{
+    d3.json("samples.json").then((data) =>{
         var id_data= data.samples;
         var filter= id.filter(x => x.id == idname);
         filter=filter[0];
@@ -38,13 +38,13 @@ function barplot(idname) {
         var samplevalue= filter.sample_values;
         var y_axis= o_ids.slice(0,10).map(o_ids)
 
-        var trace=[{
-            y: y_axis,
-            text: o_labels.slice(0,10),
-            x: samplevalue.slice(0,10).reverse(),
-            type: "bar"
-            orientation:'h'
-        }];
+        var trace= [{
+                y: y_axis,
+                text: o_labels.slice(0,10),
+                x: samplevalue.slice(0,10).reverse(),
+                type: "bar",
+                orientation:"h"}
+        ];
 
         var layout = {
             title: "Top 10 IDs W/ Labels & Names"
@@ -55,7 +55,7 @@ function barplot(idname) {
     }
 
 function bubbleplot(idname) {
-    d3.json("../../samples.json").then((data) =>{
+    d3.json("samples.json").then((data) =>{
         var id_data= data.samples;
         var filter= id.filter(x => x.id == idname);
         filter=filter[0];
@@ -77,7 +77,7 @@ function bubbleplot(idname) {
 
         var data= [trace_bubble];
         var layout= {
-            title: "Bubble Chart"
+            title: "Bubble Chart",
             height: 1000,
             width: 2000
         };
